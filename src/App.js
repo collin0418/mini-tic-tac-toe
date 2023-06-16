@@ -3,12 +3,19 @@ import './App.css';
 import Square from './Square';
 
 function App() {
+  const[xIsNext, setXIsNet]=useState(true);
   const[squares,setSquare] =useState(Array(9).fill(null));
 
   function handleClick(i){
     const nextSquares = squares.slice();
-    nextSquares[i]="X";
+    if(xIsNext){
+      nextSquares[i]="X";
+    }
+    else{
+      nextSquares[i]="O";
+    }
     setSquare(nextSquares);
+    setXIsNet(!xIsNext);
   }
 
   return (
